@@ -13,10 +13,5 @@
     "react-dom": "^18.2.0",
     "framer-motion": "^6.0.0",
     "lucide-react": "^0.100.0"
-  },
-  "devDependencies": {
-    "typescript": "^4.5.5",
-    "@types/react": "^18.0.0",
-    "@types/node": "^17.0.0"
   }
 }
