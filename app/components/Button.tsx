@@ -1,5 +1,4 @@
 import { motion } from "framer-motion"
-import { Sparkles } from "lucide-react"
 
 interface ButtonProps {
   onClick: () => void
@@ -21,7 +20,7 @@ export default function Button({ onClick }: ButtonProps) {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-        <Sparkles className="w-20 h-20 text-[#493D9E]" />
+        <i className="fas fa-star text-[#493D9E] text-6xl"></i>
       </motion.div>
       <motion.p
         className="mt-4 text-white text-center font-semibold text-lg text-shadow"
