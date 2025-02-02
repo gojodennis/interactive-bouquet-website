@@ -1,19 +1,26 @@
-import type { Metadata } from 'next'
-import './globals.css'
+import { Inter } from "next/font/google"
+import "./globals.css"
+import type React from "react" // Import React
 
-export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+const inter = Inter({ subsets: ["latin"] })
+
+export const metadata = {
+  title: "Interactive Bouquet Website",
+  description: "A beautiful interactive bouquet for your loved one",
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+      </head>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
+
