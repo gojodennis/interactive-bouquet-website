@@ -1,7 +1,4 @@
-"use client"
-
 import { motion, AnimatePresence } from "framer-motion"
-import { Flower } from "lucide-react"
 
 interface BouquetProps {
   note: string
@@ -9,9 +6,10 @@ interface BouquetProps {
   onVideoClick?: () => void
   isActive: boolean
   onClick: () => void
+  anyActive: boolean
 }
 
-export default function Bouquet({ note, hasVideo, onVideoClick, isActive, onClick }: BouquetProps) {
+export default function Bouquet({ note, hasVideo, onVideoClick, isActive, onClick, anyActive }: BouquetProps) {
   const handleClick = () => {
     if (hasVideo && onVideoClick) {
       onVideoClick()
@@ -24,9 +22,9 @@ export default function Bouquet({ note, hasVideo, onVideoClick, isActive, onClic
     <motion.div
       className={`flex flex-col items-center transition-all duration-300 ease-in-out`}
       animate={{
-        opacity: isActive ? 1 : 0.6,
-        scale: isActive ? 1 : 0.95,
-        filter: isActive ? "blur(0px)" : "blur(1px)",
+        opacity: anyActive && !isActive ? 0.6 : 1,
+        scale: anyActive && !isActive ? 0.95 : 1,
+        filter: anyActive && !isActive ? "blur(1px)" : "blur(0px)",
       }}
       transition={{ duration: 0.3 }}
     >
@@ -36,7 +34,7 @@ export default function Bouquet({ note, hasVideo, onVideoClick, isActive, onClic
         whileTap={{ scale: 0.9 }}
         onClick={handleClick}
       >
-        <Flower className="w-16 h-16 text-[#493D9E]" />
+        <i className="fas fa-flower text-[#493D9E] text-4xl"></i>
       </motion.div>
       <AnimatePresence>
         {isActive && (
